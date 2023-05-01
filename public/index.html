@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script src="keyboard_shortcuts.js" type="module"></script>
+    <script>
+       function openImageNewTab() {
+	       filename = $("#filename").val()
+	       window.open(filename);
+	    }
+
+	 $(document).ready(function () {
+		 $('.js-example-basic-multiple').select2({
+			 tags: true,
+			 tokenSeparators: [' '],
+			 insertTag: function (data, tag) {
+				 // Insert the tag at the end of the results
+				 data.push(tag);
+			 }
+		 });
+	 });
+    </script>
+
+    <title>Family Photos</title>
+
+</head>
+
+
+<body>
+<h1> Photo Image Getter</h1>
+<div class="row">
+
+    <div class="column_left">
+        <img id='photo' src="/photos/00000297.jpg" width="100%">
+    </div>
+
+    <div class="column_right">
+        <form action="/submit" method="get">
+            <input hidden="true" id="filename" name="image_filename" type="text" value="/photos/00000297.jpg">
+            <br>
+
+            <input type="checkbox" id="star" name="star" value="true">
+            <label for="star">Star</label>
+            <br>
+
+            <input hidden="true" id="rotation" name="rotation" type="text" value="0">
+            <br>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+
+            <select id="person-select"
+                    class="js-example-basic-multiple"
+                    data-placeholder="People included in this photo"
+                    name="people"
+                    multiple="multiple"
+                    style="width: 100%"
+            >
+                <optgroup label="Immediate Family">
+                    <option value="margaret">Margaret</option>
+                    <option value="tim">Tim</option>
+                    <option value="ryan">Ryan</option>
+                    <option value="alex">Alex</option>
+                    <option value="will">Will</option>
+                </optgroup>
+                <optgroup label="Grandparents">
+                    <option value="grandma">Grandma</option>
+                    <option value="grandpa">Grandpa</option>
+                    <option value="gigi">Gigi</option>
+                </optgroup>
+                <optgroup label="Valegas">
+                    <option value="catherine">Catherine</option>
+                    <option value="beat">Beat</option>
+                    <option value="vinson">Vinson</option>
+                    <option value="sharon">Sharon</option>
+                    <option value="thomas">Thomas</option>
+                    <option value="heather">Heather</option>
+                </optgroup>
+                <optgroup label="Pikes">
+                    <option value="nancy">Nancy</option>
+                    <option value="bruce">Bruce</option>
+                    <option value="marybeth">Marybeth</option>
+                    <option value="kathy">Kathy</option>
+                    <option value="micheal">Micheal</option>
+                    <option value="jay">Jay</option>
+                    <option value="kaitlyn">Kaitlyn</option>
+                    <option value="chris">Chris</option>
+                    <option value="suzie">Suzie</option>
+                </optgroup>
+                <optgroup label="Other">
+                    <option value="liz">Liz</option>
+                    <option value="leonard">Leonard</option>
+                    <option value="katie">Katie</option>
+                </optgroup>
+            </select>
+
+            <br><br>
+
+            <input type="submit" id="submit" value="Submit">
+
+        </form>
+
+        <br>
+        <br>
+        <br>
+
+        <button onclick="openImageNewTab()">View Image in New Tab</button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+	document.getElementById('star').checked = false
+</script>
+
+
+</body>
+</html>

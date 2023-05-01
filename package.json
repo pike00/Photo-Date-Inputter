@@ -1,0 +1,17 @@
+{
+  "name": "Photo Date Inputter",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "data-parser": "^1.0.1",
+    "easyzoom": "^2.5.3",
+    "express": "^4.17.1",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.5.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.3"
+  }
+}
